@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <input placeholder="Enter an address, zipcode, or longitude and latitude" id="search-box" type="text" />
-  <button onclick="getGifs()" id="search-button">Search</button>
-
-  <script src="/assets/script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./assets/styles.css" rel="stylesheet" />
+  </head>
+  <nav>
+    <div class="container-nav">
+      <div class="logo">APOD</div>
+      <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/previous/1">Previous</a>
+      </div>
+    </div>
+  </nav>
+  <body>
+    <div class="container-content">
+      <div class="search">
+        <input
+          placeholder="Enter an address, zipcode, or longitude and latitude"
+          id="search-box"
+          type="text"
+        />
+        <button id="search-button">Search</button>
+        <div class="local-wrapper">
+          <h3 id="local-name">
+            Enter an address, zipcode, or longitude and latitude
+          </h3>
+          <p id="local-temperature"></p>
+          <p id="local-feels-like"></p>
+          <p id="local-conditions"></p>
+          <p id="local-humidity"></p>
+        </div>
+      </div>
+      <div class="seven-day-wrapper"></div>
+    </div>
+    <script src="./assets/script.js"></script>
+  </body>
+  <footer>
+    <div class="container-footer">
+      <div class="logo">
+        <h5>Designed by Matthew Hoepfl</h5>
+      </div>
+      <div class="nav">
+        <a class="active" href="/">Home</a>
+        <a href="/previous/1">Previous</a>
+      </div>
+    </div>
+  </footer>
 </html>
