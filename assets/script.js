@@ -11,6 +11,7 @@ const searchBox = document.querySelector("#search-box");
 const searchButton = document.querySelector("#search-button");
 
 function getLocalWeather() {
+  sevenDayWrapper.innerHTML="";
   let location = searchBox.value;
   const APIURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=CF5EAZAP76ZF3TS6QAJNZ88FX`;
   console.log(APIURL);
@@ -40,42 +41,90 @@ function getLocalWeather() {
           var dayWrapper = document.createElement("div");
           dayWrapper.className = "day-wrapper";
 
+          // Date
           var sevenDayDate = document.createElement("p");
           sevenDayDate.innerHTML = day.datetime;
           dayWrapper.appendChild(sevenDayDate);
 
+          // Icon
           var sevenDayIcon = document.createElement("p");
           sevenDayIcon.innerHTML = day.icon;
           dayWrapper.appendChild(sevenDayIcon);
 
-          var sevenDayTemp = document.createElement("div");
-          var sevenDayLow = document.createElement("p");
-          var sevenDayHigh = document.createElement("p");
+          // Temp
+          // Temp Label
+          var tempLabel = document.createElement("p");
+          tempLabel.className="label";
+          tempLabel.innerHTML="Temperature";
+          dayWrapper.appendChild(tempLabel);
 
+          // Container
+          var sevenDayTemp = document.createElement("div");
+          sevenDayTemp.className="temp";
+
+          // High Low
+          var sevenDayLow = document.createElement("p");
           sevenDayLow.innerHTML = day.tempmin;
+          var sevenDayHigh = document.createElement("p");
           sevenDayHigh.innerHTML = day.tempmax;
           sevenDayTemp.appendChild(sevenDayLow);
           sevenDayTemp.appendChild(sevenDayHigh);
+
           dayWrapper.appendChild(sevenDayTemp);
 
-          var sevenDaysFeelsLike = document.createElement("div");
-          var sevenDayFeelsLikeMin = document.createElement("p");
-          var sevenDayFeelsLikeMax = document.createElement("p");
+          // Feels Like
+          // Feels Like Label
+          var feelsLikeLabel = document.createElement("p");
+          feelsLikeLabel.className="label";
+          feelsLikeLabel.innerHTML="Feels Like";
+          dayWrapper.appendChild(feelsLikeLabel);
 
+          // Container
+          var sevenDaysFeelsLike = document.createElement("div");
+          sevenDaysFeelsLike.className="feels-like";
+
+          // High Low
+          var sevenDayFeelsLikeMin = document.createElement("p");
           sevenDayFeelsLikeMin.innerHTML = day.feelslikemin;
+          var sevenDayFeelsLikeMax = document.createElement("p");
           sevenDayFeelsLikeMax.innerHTML = day.feelslikemax;
+
           sevenDaysFeelsLike.appendChild(sevenDayFeelsLikeMin);
           sevenDaysFeelsLike.appendChild(sevenDayFeelsLikeMax);
           dayWrapper.appendChild(sevenDaysFeelsLike);
 
+          // Moon Phase
+          // Moon Phase Label
+          var moonPhaseLabel = document.createElement("p");
+          moonPhaseLabel.className="label";
+          moonPhaseLabel.innerHTML="Moon Phase";
+          dayWrapper.appendChild(moonPhaseLabel);
+
+          // Container
           var sevenDayMoonPhase = document.createElement("p");
           sevenDayMoonPhase.innerHTML = day.moonphase;
           dayWrapper.appendChild(sevenDayMoonPhase);
 
+          // Conditions
+          // Conditions Label
+          var conditionsLabel = document.createElement("p");
+          conditionsLabel.className="label";
+          conditionsLabel.innerHTML="Conditions";
+          dayWrapper.appendChild(conditionsLabel);
+
+          //Container
           var sevenDayConditions = document.createElement("p");
           sevenDayConditions.innerHTML = day.conditions;
           dayWrapper.appendChild(sevenDayConditions);
 
+          // Description
+          // Description Label
+          var descriptionsLabel = document.createElement("p");
+          descriptionsLabel.className="label";
+          descriptionsLabel.innerHTML="Description";
+          dayWrapper.appendChild(descriptionsLabel);
+
+          // Container
           var sevenDayDescription = document.createElement("p");
           sevenDayDescription.innerHTML = day.description;
           dayWrapper.appendChild(sevenDayDescription);

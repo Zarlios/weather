@@ -8,10 +8,9 @@
   </head>
   <nav>
     <div class="container-nav">
-      <div class="logo">APOD</div>
+      <div class="logo">Weather</div>
       <div class="topnav">
         <a class="active" href="/">Home</a>
-        <a href="/previous/1">Previous</a>
       </div>
     </div>
   </nav>
@@ -24,16 +23,17 @@
           type="text"
         />
         <button id="search-button">Search</button>
-        <div class="local-wrapper">
-          <h3 id="local-name">
-            Enter an address, zipcode, or longitude and latitude
-          </h3>
-          <p id="local-temperature"></p>
-          <p id="local-feels-like"></p>
-          <p id="local-conditions"></p>
-          <p id="local-humidity"></p>
-        </div>
       </div>
+      <div class="local-wrapper">
+        <h3 id="local-name">
+          Enter an address, zipcode, or longitude and latitude
+        </h3>
+        <p id="local-temperature"></p>
+        <p id="local-feels-like"></p>
+        <p id="local-conditions"></p>
+        <p id="local-humidity"></p>
+      </div>
+      <h1>Seven Day Forecast</h1>
       <div class="seven-day-wrapper"></div>
     </div>
     <script src="./assets/script.js"></script>
@@ -45,7 +45,6 @@
       </div>
       <div class="nav">
         <a class="active" href="/">Home</a>
-        <a href="/previous/1">Previous</a>
       </div>
     </div>
   </footer>

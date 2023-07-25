@@ -58,25 +58,32 @@ body {
   flex-direction: column;
   padding: 0px 5em;
   justify-items: center;
+  align-items: center;
 }
 
 .search {
+  display: flex;
+  flex-direction: row;
   width: 60vw;
   margin: 1em 0em;
 }
 
+#search-box {
+  width: 25rem;
+}
+
 .local-wrapper {
+  display: flex;
+  flex-direction: column;
   background-color: lightblue;
   width: 60vw;
   height: 30vh;
-  margin: 1em 0em;
 }
 
 .local-wrapper #local-name {
   background-color: #333;
   color: white;
   padding: 10px;
-
 }
 
 #local-temperature {
@@ -96,8 +103,27 @@ body {
 }
 
 .day-wrapper {
-  width: 100em;
-  border: black 1px solid;
+  width: 13vw;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+  margin-left: .5em;
+}
+
+.label {
+  font-size: 10px;
+}
+
+.temp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.feels-like {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .page {
@@ -108,10 +134,9 @@ body {
   padding: 0px 5em;
 }
 
-#submit {
-  display: flex;
-  width: 10rem;
-  height: 3rem;
+#search-button {
+  width: 8rem;
+  height: 2rem;
   background-color: lightblue;
   border: 0px;
   text-decoration: none;
@@ -138,31 +163,8 @@ body {
   flex-direction: column;
 }
 
-.container-content #user {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 500px;
-  gap: 1em;
-  align-items: center;
-}
-
-.container-content #buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 500px;
-  gap: 1em;
-  align-items: center;
-  padding-top: 20px;
-}
-
 .container-content h1 {
   display: flex;
-  padding-top: 20px;
-}
-
-.container-content p {
   padding-top: 20px;
 }
 
