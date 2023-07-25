@@ -1,9 +1,6 @@
 const localWrapper = document.querySelector(".local-wrapper");
-const localTemperature = document.querySelector("#local-temperature");
+const localDataWrapper = document.querySelector(".local-data-wrapper")
 const localName = document.querySelector("#local-name");
-const localFeelsLike = document.querySelector("#local-feels-like");
-const localConditions = document.querySelector("#local-conditions");
-const localHumidity = document.querySelector("#local-humidity");
 
 const sevenDayWrapper = document.querySelector(".seven-day-wrapper");
 
@@ -18,16 +15,69 @@ function getLocalWeather() {
   fetch(APIURL)
     .then((response) => response.json())
     .then((weather) => {
+      localDataWrapper.innerHTML="";
       // User Interface:
       // Design a user interface that allows users to enter a location (city, state, or country) to retrieve the weather forecast.
       // Display the current weather conditions, including temperature,  and weather description.
 
       // console.log(weather.currentConditions);
       localName.innerHTML = weather.resolvedAddress;
-      localTemperature.innerHTML = `${weather.currentConditions.temp}°`;
-      localConditions.innerHTML = weather.currentConditions.conditions;
-      localFeelsLike.innerHTML = `${weather.currentConditions.feelslike}°`;
-      localHumidity.innerHTML = weather.currentConditions.humidity;
+      
+      // Temperature
+      var localTemperatureLabel = document.createElement("div");
+      localTemperatureLabel.className = "label";
+      var localTemperatureElement = document.createElement("p");
+      localTemperatureElement.className="local-temperature";
+
+      localDataWrapper.appendChild(localTemperatureLabel);
+      localDataWrapper.appendChild(localTemperatureElement);
+
+      localTemperatureLabel.innerHTML = "Temperature"
+      localTemperatureElement.innerHTML = `${weather.currentConditions.temp}°`;
+      
+      // Sub Data Wrapper
+      var localSubDataWrapper = document.createElement("div");
+      localSubDataWrapper.className = "sub-data-wrapper"
+
+      localDataWrapper.appendChild(localSubDataWrapper);
+
+      // Feels like
+      var localFeelsLikeLabel = document.createElement("div");
+      localFeelsLikeLabel.className = "label";
+      var localFeelsLikeElement = document.createElement("div");
+      localFeelsLikeElement.className = "local-feels-like";
+
+      localSubDataWrapper.appendChild(localFeelsLikeLabel);
+      localSubDataWrapper.appendChild(localFeelsLikeElement);
+
+      localFeelsLikeLabel.innerHTML = "Feels Like"
+      localFeelsLikeElement.innerHTML = `${weather.currentConditions.feelslike}°`;
+
+      // Conditions
+      var localConditionsLabel = document.createElement("div");
+      localConditionsLabel.className="label";
+      var localConditionsElement = document.createElement("div");
+      localConditionsElement.className = "local-conditions";
+
+      localSubDataWrapper.appendChild(localConditionsLabel);
+      localSubDataWrapper.appendChild(localConditionsElement);
+
+      localConditionsLabel.innerHTML = "Conditions"
+      localConditionsElement.innerHTML = weather.currentConditions.conditions;
+
+      // Humidity
+      
+      var localHumidityLabel = document.createElement("div");
+      localHumidityLabel.className = "label";
+      var localHumidityElement = document.createElement("div");
+      localHumidityElement.className = "local-humidity";
+
+      localSubDataWrapper.appendChild(localHumidityLabel);
+      localSubDataWrapper.appendChild(localHumidityElement);
+
+      localHumidityLabel.innerHTML = "Humidity"
+      localHumidityElement.innerHTML = weather.currentConditions.humidity;
+      
 
       // Display a 7-day forecast with the date, weather icon, high and low
       // temperature for each day.
